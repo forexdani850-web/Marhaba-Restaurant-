@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#1a472a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Marhaba">
+    <meta name="description" content="Marhaba Salem Restaurant - Automated digital menu and VIP tier management system. Install now!">
+    
+    <link rel="manifest" href="/Marhaba-Restaurant-/manifest.json">
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%231a472a' width='192' height='192'/><text x='96' y='120' font-size='120' font-weight='bold' fill='white' text-anchor='middle' font-family='Arial'>M</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%231a472a' width='192' height='192' rx='45'/><text x='96' y='120' font-size='120' font-weight='bold' fill='white' text-anchor='middle' font-family='Arial'>M</text></svg>">
+    
+    <title>Marhaba Restaurant - Install Now</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: linear-gradient(135deg, #1a472a 0%, #2d6a3e 50%, #1a472a 100%);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .install-container {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+            padding: 40px;
+            animation: slideUp 0.6s ease;
+            text-align: center;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .app-logo {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #1a472a 0%, #2d6a3e 100%);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            font-weight: bold;
+            color: white;
+            margin: 0 auto 24px;
+            box-shadow: 0 10px 30px rgba(26, 71, 42, 0.2);
+            animation: bounce 0.6s ease 0.3s both;
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .app-name {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a472a;
+            margin-bottom: 8px;
+        }
+
+        .app-tagline {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .app-description {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .features-list {
+            background: #f5f5f5;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 32px;
+            text-align: left;
+        }
+
+        .features-list h3 {
+            color: #1a472a;
+            font-size: 14px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .features-list ul {
+            list-style: none;
+        }
+
+        .features-list li {
+            padding: 8px 0;
+            color: #666;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+
+        .features-list li:before {
+            content: "✓";
+            color: #1a472a;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        .install-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            width: 100%;
+        }
+
+        .btn-install-primary {
+            background: linear-gradient(135deg, #1a472a 0%, #2d6a3e 100%);
+            color: white;
+            box-shadow: 0 10px 25px rgba(26, 71, 42, 0.2);
+        }
+
+        .btn-install-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(26, 71, 42, 0.3);
+        }
+
+        .btn-install-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #1a472a;
+            border: 2px solid #1a472a;
+        }
+
+        .btn-secondary:hover {
+            background: #f5f5f5;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary:active {
+            transform: translateY(0);
+        }
+
+        .status-message {
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .status-message.success {
+            background: #e8f5e9;
+            color: #1b5e20;
+            border-left: 4px solid #4caf50;
+            display: block;
+        }
+
+        .status-message.info {
+            background: #e3f2fd;
+            color: #0d47a1;
+            border-left: 4px solid #2196f3;
+            display: block;
+        }
+
+        .status-message.error {
+            background: #ffebee;
+            color: #b71c1c;
+            border-left: 4px solid #f44336;
+            display: block;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .browser-support {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 12px;
+            color: #e65100;
+            text-align: left;
+        }
+
+        .browser-support strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 24px;
+            font-size: 12px;
+        }
+
+        .footer-links a {
+            color: #1a472a;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #2d6a3e;
+            text-decoration: underline;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #d4a574;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .copy-link-section {
+            background: #f5f5f5;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 24px;
+            display: none;
+        }
+
+        .copy-link-section.show {
+            display: block;
+        }
+
+        .copy-link-section label {
+            display: block;
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .copy-link-input {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .copy-link-input input {
+            flex: 1;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 12px;
+            font-family: 'Courier New', monospace;
+            color: #666;
+            background: white;
+        }
+
+        .copy-link-input button {
+            padding: 10px 16px;
+            background: #1a472a;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .copy-link-input button:hover {
+            background: #2d6a3e;
+        }
+
+        .qr-code {
+            display: none;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .qr-code.show {
+            display: block;
+        }
+
+        .qr-code img {
+            max-width: 200px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .timer {
+            font-size: 12px;
+            color: #888;
+            margin-top: 16px;
+        }
+
+        @media (max-width: 480px) {
+            .install-container {
+                padding: 24px;
+            }
+
+            .app-logo {
+                width: 100px;
+                height: 100px;
+                font-size: 48px;
+            }
+
+            .app-name {
+                font-size: 24px;
+            }
+
+            .app-description {
+                font-size: 14px;
+            }
+
+            .btn {
+                padding: 12px 24px;
+                font-size: 14px;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+        }
+
+        .check-browser {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 12px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="install-container">
+        <!-- Logo -->
+        <div class="app-logo">🍽️</div>
+
+        <!-- App Name -->
+        <div class="app-name">Marhaba Salem</div>
+        <div class="app-tagline">Cuisine Moyen-Orientale Premium</div>
+
+        <!-- Description -->
+        <div class="app-description">
+            Install Marhaba Restaurant App directly to your device. Order delicious Middle Eastern cuisine, manage your VIP status, and enjoy exclusive rewards!
+        </div>
+
+        <!-- Browser Support Info -->
+        <div class="browser-support">
+            <strong>Best on Chrome for Android & Desktop</strong>
+            Also works on Edge, Samsung Internet, and Firefox
+        </div>
+
+        <!-- Status Message -->
+        <div id="statusMessage" class="status-message"></div>
+
+        <!-- Features -->
+        <div class="features-list">
+            <h3>What You Get</h3>
+            <ul>
+                <li>📱 Install as app on home screen</li>
+                <li>⚡ Lightning-fast loading</li>
+                <li>📱 Works offline</li>
+                <li>🔔 Push notifications</li>
+                <li>⭐ Exclusive rewards & discounts</li>
+                <li>🎁 VIP tier system</li>
+            </ul>
+        </div>
+
+        <!-- Install Buttons -->
+        <div class="install-buttons">
+            <button class="btn btn-install-primary" onclick="installApp()" id="installBtn">
+                <span>📥 Install App</span>
+            </button>
+            <button class="btn btn-secondary" onclick="toggleShareLink()">
+                <span>🔗 Share Installation Link</span>
+            </button>
+            <a href="https://forexdani850-web.github.io/Marhaba-Restaurant-/" class="btn btn-secondary">
+                <span>🌐 Open in Browser</span>
+            </a>
+        </div>
+
+        <!-- Share Link Section -->
+        <div class="copy-link-section" id="shareLinkSection">
+            <label>Installation Link</label>
+            <div class="copy-link-input">
+                <input 
+                    type="text" 
+                    id="installLink" 
+                    value="https://forexdani850-web.github.io/Marhaba-Restaurant-/install.html" 
+                    readonly
+                >
+                <button onclick="copyToClipboard()">Copy</button>
+            </div>
+            <div class="qr-code" id="qrCode"></div>
+        </div>
+
+        <!-- Footer Links -->
+        <div class="footer-links">
+            <a href="https://forexdani850-web.github.io/Marhaba-Restaurant-/">Home</a>
+            <a href="#privacy">Privacy</a>
+            <a href="#support">Support</a>
+        </div>
+
+        <!-- Browser Check -->
+        <div class="check-browser" id="browserCheck"></div>
+    </div>
+
+    <script src="/Marhaba-Restaurant-/app.js"></script>
+    <script>
+        // PWA Installation Handler
+        let deferredPrompt;
+        let installButton = document.getElementById('installBtn');
+        let statusMessage = document.getElementById('statusMessage');
+        let browserCheck = document.getElementById('browserCheck');
+
+        // Detect browser and PWA capability
+        function checkBrowserCapability() {
+            const isChromeOrEdge = /Chrome|Edg/.test(navigator.userAgent);
+            const isAndroid = /Android/.test(navigator.userAgent);
+            const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
+            
+            let message = '';
+            
+            if (isIOS) {
+                message = '📱 iOS: Use Share → Add to Home Screen';
+            } else if (isAndroid && isChromeOrEdge) {
+                message = '✓ Chrome/Android: Perfect for PWA installation';
+            } else if (!isChromeOrEdge) {
+                message = '⚠️ Not on Chrome? Switch to Chrome for best experience';
+            } else {
+                message = '✓ Your browser supports PWA installation';
+            }
+            
+            browserCheck.textContent = message;
+        }
+
+        // Listen for install prompt
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installButton.style.display = 'block';
+            showStatus('Click "Install App" button to add Marhaba to your device!', 'info');
+        });
+
+        // Install App
+        async function installApp() {
+            if (!deferredPrompt) {
+                showStatus('Installation prompt not available. Please try again or use browser menu.', 'error');
+                installButton.disabled = false;
+                return;
+            }
+
+            installButton.disabled = true;
+            installButton.innerHTML = '<span class="loading-spinner"></span> Installing...';
+
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+
+            if (outcome === 'accepted') {
+                showStatus('✓ Marhaba app installed successfully! Check your home screen.', 'success');
+                installButton.innerHTML = '<span>✓ Installed</span>';
+            } else {
+                showStatus('Installation cancelled. You can install anytime from this page.', 'error');
+                installButton.disabled = false;
+                installButton.innerHTML = '<span>📥 Install App</span>';
+            }
+
+            deferredPrompt = null;
+        }
+
+        // App Installed Event
+        window.addEventListener('appinstalled', () => {
+            console.log('Marhaba PWA installed');
+            showStatus('🎉 Marhaba Restaurant installed! Open it from your home screen.', 'success');
+            installButton.innerHTML = '<span>✓ App Installed</span>';
+        });
+
+        // Show Status Message
+        function showStatus(message, type) {
+            statusMessage.textContent = message;
+            statusMessage.className = `status-message ${type}`;
+            setTimeout(() => {
+                if (type === 'error') {
+                    statusMessage.className = 'status-message';
+                }
+            }, 5000);
+        }
+
+        // Toggle Share Link Section
+        function toggleShareLink() {
+            const section = document.getElementById('shareLinkSection');
+            section.classList.toggle('show');
+            
+            if (section.classList.contains('show')) {
+                // Generate QR code
+                generateQRCode();
+            }
+        }
+
+        // Copy Link to Clipboard
+        function copyToClipboard() {
+            const link = document.getElementById('installLink');
+            link.select();
+            document.execCommand('copy');
+            
+            const btn = event.target;
+            const originalText = btn.textContent;
+            btn.textContent = '✓ Copied!';
+            setTimeout(() => {
+                btn.textContent = originalText;
+            }, 2000);
+        }
+
+        // Generate QR Code
+        function generateQRCode() {
+            const qrContainer = document.getElementById('qrCode');
+            const installLink = 'https://forexdani850-web.github.io/Marhaba-Restaurant-/install.html';
+            const qrSize = 200;
+            
+            // Using QR Code API
+            const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=${qrSize}x${qrSize}&data=${encodeURIComponent(installLink)}`;
+            
+            qrContainer.innerHTML = `
+                <div style="margin-top: 16px;">
+                    <label style="font-size: 12px; color: #888; display: block; margin-bottom: 12px;">Scan to Install</label>
+                    <img src="${qrUrl}" alt="QR Code for Marhaba Installation" style="max-width: 200px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                </div>
+            `;
+            qrContainer.classList.add('show');
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            checkBrowserCapability();
+            
+            // Redirect if standalone mode
+            if (window.navigator.standalone === true) {
+                setTimeout(() => {
+                    window.location.href = 'https://forexdani850-web.github.io/Marhaba-Restaurant-/';
+                }, 2000);
+            }
+        });
+
+        // Check for install prompt support
+        if (!('onbeforeinstallprompt' in window)) {
+            showStatus('📖 View the menu in your browser for now. Installation will be available soon!', 'info');
+        }
+    </script>
+</body>
+</html>
