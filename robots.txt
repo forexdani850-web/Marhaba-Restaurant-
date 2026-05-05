@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /Marhaba-Restaurant-/
+Disallow: /admin
+Disallow: /api
+
+Sitemap: https://forexdani850-web.github.io/Marhaba-Restaurant-/sitemap.xml

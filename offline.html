@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marhaba - Offline</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a472a 0%, #2d6a3e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+        .icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #1a472a;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        .status {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #888;
+        }
+        button {
+            background: #1a472a;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #2d6a3e;
+        }
+        button.secondary {
+            background: #ddd;
+            color: #333;
+        }
+        button.secondary:hover {
+            background: #ccc;
+        }
+        .features {
+            text-align: left;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        .features h3 {
+            color: #1a472a;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .features ul {
+            list-style: none;
+            color: #666;
+            font-size: 14px;
+        }
+        .features li {
+            padding: 5px 0;
+        }
+        .features li:before {
+            content: "✓ ";
+            color: #1a472a;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">📡</div>
+        <h1>No Internet Connection</h1>
+        <p>You're currently offline. Some features may not be available.</p>
+        
+        <div class="status">
+            <strong>Connection Status:</strong> Offline Mode
+        </div>
+
+        <div class="features">
+            <h3>Available Offline:</h3>
+            <ul>
+                <li>View cached menu items</li>
+                <li>Check previous orders</li>
+                <li>Access app shortcuts</li>
+            </ul>
+        </div>
+
+        <button onclick="location.reload()">🔄 Check Connection</button>
+        <button class="secondary" onclick="goHome()">🏠 Go Home</button>
+    </div>
+
+    <script>
+        function goHome() {
+            window.location.href = '/Marhaba-Restaurant-/';
+        }
+
+        // Check connection every 5 seconds
+        setInterval(() => {
+            fetch('/Marhaba-Restaurant-/', { method: 'HEAD' })
+                .then(() => {
+                    console.log('Connection restored');
+                    // Notify user
+                    if (document.visibilityState === 'visible') {
+                        location.reload();
+                    }
+                })
+                .catch(() => {
+                    console.log('Still offline');
+                });
+        }, 5000);
+    </script>
+</body>
+</html>
